@@ -14,7 +14,7 @@ namespace WebScraper.Lib {
         public void SaveCollectedData(IEnumerable<RoundTripFlightData> data) {
             Directory.CreateDirectory(path);
 
-            using (var fileStream = new FileStream($@"{path}/_collectedData_{DateTime.Now.Ticks}.txt", FileMode.Create))
+            using (var fileStream = new FileStream($@"{path}/collectedData_{DateTime.Now.Ticks}.txt", FileMode.Create))
             using (var file = new StreamWriter(fileStream)) {
                 foreach (var fl in data) {
                     file.WriteLine(" ---- Flight separator ----\n");
@@ -46,7 +46,7 @@ namespace WebScraper.Lib {
         public void SaveCollectedData(IEnumerable<FlightDataModel> data) {
             Directory.CreateDirectory(path);
 
-            using (var fileStream = new FileStream($@"{path}/_collectedData_{DateTime.Now.Ticks}.txt", FileMode.Create))
+            using (var fileStream = new FileStream($@"{path}/collectedData.txt", FileMode.Append))
             using (var file = new StreamWriter(fileStream)) {
                 foreach (var fl in data) {
                     file.WriteLine(" ---- Flight separator ----\n");

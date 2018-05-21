@@ -4,8 +4,6 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace WebScraper.Lib {
 
