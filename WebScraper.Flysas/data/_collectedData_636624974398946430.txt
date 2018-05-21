@@ -1,0 +1,2737 @@
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 534.50€(267.25€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 429.50€(267.25€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 401.50€(267.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 401.50€(267.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 401.50€(267.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 401.50€(267.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 497.27€(267.25€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 450.27€(267.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 450.27€(267.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 394.05€(267.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 394.05€(267.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 07:55:00
+arrival time: 2018-06-04 09:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 422.27€(267.25€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 429.50€(162.25€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 324.50€(162.25€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 296.50€(162.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 296.50€(162.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 296.50€(162.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 296.50€(162.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 392.27€(162.25€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 345.27€(162.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 345.27€(162.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 289.05€(162.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 289.05€(162.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 11:15:00
+arrival time: 2018-06-04 12:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 317.27€(162.25€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 401.50€(134.25€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 296.50€(134.25€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 364.27€(134.25€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 317.27€(134.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 317.27€(134.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 261.05€(134.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 261.05€(134.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 15:25:00
+arrival time: 2018-06-04 17:00:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 289.27€(134.25€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 401.50€(134.25€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 296.50€(134.25€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 364.27€(134.25€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 317.27€(134.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 317.27€(134.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 261.05€(134.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 261.05€(134.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 16:15:00
+arrival time: 2018-06-04 17:50:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 289.27€(134.25€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 401.50€(134.25€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 296.50€(134.25€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 364.27€(134.25€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 317.27€(134.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 317.27€(134.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 261.05€(134.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 261.05€(134.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 18:20:00
+arrival time: 2018-06-04 19:55:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 289.27€(134.25€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 401.50€(134.25€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 296.50€(134.25€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 268.50€(134.25€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 364.27€(134.25€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 317.27€(134.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 317.27€(134.25€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 261.05€(134.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 261.05€(134.25€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+
+departure time: 2018-06-04 19:40:00
+arrival time: 2018-06-04 21:15:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: 
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 289.27€(134.25€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 497.27€(230.02€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 392.27€(230.02€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 364.27€(230.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 364.27€(230.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 364.27€(230.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 364.27€(230.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 460.04€(230.02€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 413.04€(230.02€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 413.04€(230.02€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 356.82€(230.02€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 356.82€(230.02€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 06:10:00
+arrival time: 2018-06-04 09:20:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 385.04€(230.02€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 450.27€(183.02€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 345.27€(183.02€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 317.27€(183.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 317.27€(183.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 317.27€(183.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 317.27€(183.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 413.04€(183.02€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 366.04€(183.02€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 366.04€(183.02€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 309.82€(183.02€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 309.82€(183.02€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 11:05:00
+arrival time: 2018-06-04 14:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 338.04€(183.02€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 450.27€(183.02€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 345.27€(183.02€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 317.27€(183.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 317.27€(183.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 317.27€(183.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 317.27€(183.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 413.04€(183.02€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 366.04€(183.02€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 366.04€(183.02€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 309.82€(183.02€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 309.82€(183.02€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 12:35:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 338.04€(183.02€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 394.05€(126.80€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 289.05€(126.80€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 261.05€(126.80€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 261.05€(126.80€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 261.05€(126.80€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 261.05€(126.80€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 356.82€(126.80€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 309.82€(126.80€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 309.82€(126.80€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 253.60€(126.80€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 253.60€(126.80€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 13:30:00
+arrival time: 2018-06-04 16:25:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 281.82€(126.80€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 394.05€(126.80€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 289.05€(126.80€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 261.05€(126.80€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 261.05€(126.80€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 261.05€(126.80€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 261.05€(126.80€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 356.82€(126.80€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 309.82€(126.80€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 309.82€(126.80€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 253.60€(126.80€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 253.60€(126.80€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 14:25:00
+arrival time: 2018-06-04 18:30:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 281.82€(126.80€+155.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 07:55:00
+arrival time: 2018-06-10 09:35:00
+
+total price: 422.27€(155.02€+267.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 11:15:00
+arrival time: 2018-06-10 12:50:00
+
+total price: 317.27€(155.02€+162.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 15:25:00
+arrival time: 2018-06-10 17:00:00
+
+total price: 289.27€(155.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 16:15:00
+arrival time: 2018-06-10 17:50:00
+
+total price: 289.27€(155.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 18:20:00
+arrival time: 2018-06-10 19:55:00
+
+total price: 289.27€(155.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+
+departure time: 2018-06-10 19:40:00
+arrival time: 2018-06-10 21:15:00
+
+total price: 289.27€(155.02€+134.25€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 06:10:00
+arrival time: 2018-06-10 09:20:00
+
+total price: 385.04€(155.02€+230.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 11:05:00
+arrival time: 2018-06-10 14:35:00
+
+total price: 338.04€(155.02€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 12:35:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 338.04€(155.02€+183.02€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 13:30:00
+arrival time: 2018-06-10 16:25:00
+
+total price: 281.82€(155.02€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 14:25:00
+arrival time: 2018-06-10 18:30:00
+
+total price: 281.82€(155.02€+126.80€)
+taxes: 0
+
+
+ ---- Flight separator ----
+
+from: Arlanda
+to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-04 17:35:00
+arrival time: 2018-06-04 21:35:00
+
+return_from: Arlanda
+return_to: Heathrow
+connected: Oslo
+
+departure time: 2018-06-10 17:35:00
+arrival time: 2018-06-10 21:35:00
+
+total price: 310.04€(155.02€+155.02€)
+taxes: 0
+
+
+------------------------

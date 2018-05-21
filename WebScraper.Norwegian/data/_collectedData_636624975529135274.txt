@@ -1,0 +1,12 @@
+ ---- Flight separator ----
+
+from: Oslo-Gardermoen
+to: Riga
+
+departure time: 2018-06-22 11:50:00
+arrival time: 2018-06-22 14:20:00
+
+total price: 172.67
+taxes: 21.05
+
+------------------------
