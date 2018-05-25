@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using WebScraper.Lib;
 
-namespace WebScraper.Flysas {
-    public class SasFlightData {
+namespace WebScraper.Flysas
+{
+    public class SasFlightData
+    {
         public string Departure { get; set; }
         public string Arrival { get; set; }
         public string Connection { get; set; }
@@ -11,6 +13,6 @@ namespace WebScraper.Flysas {
         public TimeSpan ArrTime { get; set; }
 
         public bool IsDirect { get => Connection.Equals(""); }
-        public IEnumerable<FareInfo> Fares { get; set;}
+        public IEnumerable<FareInfo> Fares { get; set; }
     }
 }

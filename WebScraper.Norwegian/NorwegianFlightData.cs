@@ -1,8 +1,10 @@
 using WebScraper.Lib;
 
-namespace WebScraper.Norwegian {
+namespace WebScraper.Norwegian
+{
 
-    public class NorwegianFlightData {
+    public class NorwegianFlightData
+    {
         public string DepTime { get; set; }
         public string ArrTime { get; set; }
         public string Departure { get; set; }

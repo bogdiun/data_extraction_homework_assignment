@@ -1,8 +1,10 @@
 using System;
 
-namespace WebScraper.Lib {
+namespace WebScraper.Lib
+{
 
-    public class FlightDataModel {
+    public class FlightDataModel
+    {
         public string Departure { get; set; }
         public string Arrival { get; set; }
         public string Connection { get; set; }
@@ -12,14 +14,16 @@ namespace WebScraper.Lib {
         public decimal Taxes { get; set; }
     }
 
-    public class FareInfo {
+    public class FareInfo
+    {
         public decimal Price { get; set; } = 0;
         public decimal Taxes { get; set; } = 0;
         public string Type { get; set; } = "";
         public string Id { get; set; } = "";
     }
 
-    public class RoundTripFlightData {
+    public class RoundTripFlightData
+    {
         public FlightDataModel Outbound { get; set; }
         public FlightDataModel Inbound { get; set; }
     }

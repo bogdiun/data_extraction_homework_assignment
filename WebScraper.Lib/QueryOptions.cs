@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WebScraper.Lib {
-    public class QueryOptions {
+namespace WebScraper.Lib
+{
+    public class QueryOptions
+    {
         public string Departure { get; set; }
         public string Arrival { get; set; }
 

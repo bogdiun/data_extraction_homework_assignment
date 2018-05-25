@@ -11,18 +11,22 @@ using System.Threading;
 using System.Text;
 using System.Collections.Generic;
 
-namespace WebScraper.Flysas {
+namespace WebScraper.Flysas
+{
 
-    public class WebScraperClientFlysas {
+    public class WebScraperClientFlysas
+    {
         private static readonly Uri homepageUri = new Uri("https://www.flysas.com/en/");
         private static readonly string domain = "www.flysas.com";
         private HttpClientHandler clientHandler;
         private HttpClient client;
-        private Storage disk = new Storage();
+        private IStorage disk = new RoundTripDataFileStorage();
 
-        public WebScraperClientFlysas() {
+        public WebScraperClientFlysas()
+        {
             var cookieContainer = new CookieContainer();
-            this.clientHandler = new HttpClientHandler() {
+            this.clientHandler = new HttpClientHandler()
+            {
                 UseCookies = true,
                 AllowAutoRedirect = true,
                 CookieContainer = cookieContainer,
@@ -36,7 +40,8 @@ namespace WebScraper.Flysas {
 
         // TODO refactor, naming and methods being too specif, not reusable .. however this is sort of page specific so not sure.
 
-        public async Task StartScraperAsync(QueryOptions query) {
+        public async Task StartScraperAsync(QueryOptions query)
+        {
 
 #if !FROMFILE // -- INITIAL GET REQUEST
 
@@ -63,7 +68,6 @@ namespace WebScraper.Flysas {
             postBackRequest.Content = postBackRequestContent;
 
             HtmlDocument postBackPage = await client.GetHtmlDocumentAsync(postBackRequest, "data/_temp_2_postback_page.xhtml");       //temp bool value to save file
-            // System.Console.WriteLine(clientHandler.CookieContainer.GetCookieHeader(homepageUri));
 #else
             HtmlDocument postBackPage = new HtmlDocument();
             postBackPage.Load(@"data/_temp_2_postback_page.xhtml");
@@ -85,7 +89,6 @@ namespace WebScraper.Flysas {
             tablePageRequest.Content = tableRequestContent;
 
             HtmlDocument page = await client.GetHtmlDocumentAsync(tablePageRequest, "data/_temp_3_tablePage_page.xhtml");
-            // System.Console.WriteLine(clientHandler.CookieContainer.GetCookieHeader(redirectUri));
 #else
             HtmlDocument page = new HtmlDocument();
             page.Load(@"data/_temp_3_tablePage_page.xhtml");
@@ -95,7 +98,8 @@ namespace WebScraper.Flysas {
             //select only direct or redirected in Oslo, with the chepeast Fare; 
             var outboundFlightsData = ParseFlightsDataFromPage(page, "outbound");
             var outbounds = outboundFlightsData.Where(o => o.Connection.Equals("") || o.Connection.Equals("Oslo"))
-                                                   .Select(f => new FlightDataModel {
+                                                   .Select(f => new FlightDataModel
+                                                   {
                                                        Departure = f.Departure,
                                                        Arrival = f.Arrival,
                                                        Connection = f.Connection,
@@ -108,7 +112,8 @@ namespace WebScraper.Flysas {
             //select only direct or redirected in Oslo, with the chepeast Fare;     //leaving as duplicates in case instructions need to change 
             var inboundFlightsData = ParseFlightsDataFromPage(page, "inbound");
             var inbounds = outboundFlightsData.Where(o => o.Connection.Equals("") || o.Connection.Equals("Oslo"))
-                                                   .Select(f => new FlightDataModel {
+                                                   .Select(f => new FlightDataModel
+                                                   {
                                                        Departure = f.Departure,
                                                        Arrival = f.Arrival,
                                                        Connection = f.Connection,
@@ -119,28 +124,34 @@ namespace WebScraper.Flysas {
                                                    }).ToList();
 
             //combine inbound/outbound
-            var collectedData = outbounds.SelectMany(o => inbounds.Select(i => new RoundTripFlightData {
+            var collectedData = outbounds.SelectMany(o => inbounds.Select(i => new RoundTripFlightData
+            {
                 Outbound = o,
                 Inbound = i
             }));
 
             disk.SaveCollectedData(collectedData);
+
         }
 
-        private IEnumerable<SasFlightData> ParseFlightsDataFromPage(HtmlDocument page, string table) {
+        private IEnumerable<SasFlightData> ParseFlightsDataFromPage(HtmlDocument page, string table)
+        {
             var flightsData = new List<SasFlightData>();
 
             var flightNodes = page.DocumentNode.SelectNodes($"//div[contains(@class, '{table}')]//tr[contains (@id, 'idLine')]");
-            foreach (var node in flightNodes) {
+            foreach (var node in flightNodes)
+            {
                 SasFlightData flight = ParseFlightNode(node);
                 flightsData.Add(flight);
             }
             return flightsData;
         }
 
-        private SasFlightData ParseFlightNode(HtmlNode node) {
+        private SasFlightData ParseFlightNode(HtmlNode node)
+        {
             var result = new SasFlightData();
-            try {
+            try
+            {
                 // Get Airports
                 var airports = node.SelectSingleNode("following-sibling::tr[1]").SelectNodes(".//td/span[@class='route']/span[@class='location']");
 
@@ -157,18 +168,22 @@ namespace WebScraper.Flysas {
                 // Get fare Info
                 result.Fares = GetAvailableFares(node);
 
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 System.Console.WriteLine("Error Parsing flight Data: {0}", e.Message);
             }
             return result;
         }
 
 
-        private List<FareInfo> GetAvailableFares(HtmlNode node) {
+        private List<FareInfo> GetAvailableFares(HtmlNode node)
+        {
             var fares = new List<FareInfo>();
             var fareNodes = node.SelectNodes("td[contains(@class, 'fare')]");
 
-            foreach (var n in fareNodes) {
+            foreach (var n in fareNodes)
+            {
                 FareInfo fare = new FareInfo();
 
                 Match matcher = Regex.Match(n.Id, @"^reco_(\d.+)$");
@@ -181,110 +196,119 @@ namespace WebScraper.Flysas {
             return fares;
         }
 
-        private bool TryUpdateFarePrice(FareInfo fare, HtmlNode html) {
+        private bool TryUpdateFarePrice(FareInfo fare, HtmlNode html)
+        {
             string scripts = html.SelectNodes("//script")
                                  .Select(s => s.InnerText)
-                                 .Aggregate((a, b) => $"{a}{b}");
+                                 .Aggregate((a, b) => a + b);
 
             //could do a trycatch
             Match matcher = Regex.Match(scripts, $@"price_{fare.Id}.+'data-price','(\d+.\d+)'");
-            if (matcher.Success) {
+            if (matcher.Success)
+            {
                 fare.Price = decimal.Parse(matcher.Groups[1].Value);
 
                 Match recoMatch = Regex.Match(scripts, $@"recoHidden_{fare.Id}', '(\d+)'");
-                if (recoMatch.Success) {
-
+                if (recoMatch.Success)
+                {
                     string reco = recoMatch.Groups[1].Value;
 
                     Match taxMatch = Regex.Match(scripts, $@"'tax':'(\d+.\d+)'.+recommendation, "".*""{reco}""", RegexOptions.Multiline);
-                    if (taxMatch.Success) {
-                        bool pricesMatch = fare.Price.Equals(decimal.Parse(taxMatch.Groups[1].Value));
-                        fare.Taxes = decimal.Parse(taxMatch.Groups[2].Value);
-                    }
+                    fare.Taxes = taxMatch.Success ? decimal.Parse(taxMatch.Groups[2].Value) : -1;
                 }
                 return true;
-            } else return false;
+            }
+            else return false;
         }
         // can't figure out a more efficient way for now. 
         // And no time to attempt headless engine for simplicity sake, maybe later?
 
-        private Dictionary<string, string> GetPostBackPageData(HtmlDocument page) {
+        private Dictionary<string, string> GetPostBackPageData(HtmlDocument page)
+        {
             var data = page.DocumentNode.SelectNodes("//input")
-                                                .Where(n => !Regex.IsMatch(n.GetAttributeValue("name", ""), @"^btnSubmit.+$"))
-                                                .ToDictionary(k => k.GetAttributeValue("name", ""), v => v.GetAttributeValue("value", ""));
+                                        .Where(n => !Regex.IsMatch(n.GetAttributeValue("name", ""), @"^btnSubmit.+$"))
+                                        .ToDictionary(k => k.GetAttributeValue("name", ""), v => v.GetAttributeValue("value", ""));
 
-            Regex lessThenRgx = new Regex("&lt;");
-            data["SO_GL"] = lessThenRgx.Replace(data["SO_GL"], "<");
+            Regex lessThanRgx = new Regex("&lt;");
+            data["SO_GL"] = lessThanRgx.Replace(data["SO_GL"], "<");
             data["__EVENTTARGET"] = "btnSubmitAmadeus";
 
             // postBackPageData.ToList().ForEach(i => System.Console.WriteLine($"{i.Key}: {i.Value}"));
             return data;
         }
 
-        private Dictionary<string, string> GetHomePageData(HtmlDocument page) {
+        private Dictionary<string, string> GetHomePageData(HtmlDocument page)
+        {
             var dataTags = page.DocumentNode.SelectNodes("//input[@name][not(@type='submit')]|//select[@name]")
                                 .Where(d => !Regex.IsMatch(d.Attributes["name"].Value, @"MainFormBorderPanel\$url$", RegexOptions.IgnoreCase))
-                                .Where(n => {
-                                    if ((n.Attributes.Contains("type") && n.Attributes["type"].Value.Equals("radio"))) {
+                                .Where(n =>
+                                {
+                                    if ((n.Attributes.Contains("type") && n.Attributes["type"].Value.Equals("radio")))
+                                    {
                                         bool isRoundtrip = n.GetAttributeValue("value", "").Equals("roundtrip");
                                         bool isShowDates = n.GetAttributeValue("value", "").Equals("Show selected dates");
                                         return (isRoundtrip || isShowDates);
-                                    } else return true;
+                                    }
+                                    else return true;
                                 });
+
             Dictionary<string, string> dataPairs = dataTags.ToDictionary(k => k.GetAttributeValue("name", ""), v => v.GetAttributeValue("value", ""));
             return dataPairs;
         }
 
         //generates the formData for the first Post request
-        private MultipartFormDataContent GetHomePageFormDataContent(Dictionary<string, string> data, QueryOptions query) {
+        private MultipartFormDataContent GetHomePageFormDataContent(Dictionary<string, string> data, QueryOptions query)
+        {
             var formDataContent = new MultipartFormDataContent("----WebKitFormBoundaryorq3ASaOYcTSG1JW");
 
             var mockData = GetMockHomePageFormData(query);
-            foreach (var name in data.Keys.ToList()) {
+            foreach (var name in data.Keys.ToList())
+            {
 
                 var pairMatch = mockData.FirstOrDefault(d => Regex.IsMatch(name, d.Key));
-                data[name] = pairMatch.Value ?? data[name] ?? "";
+                data[name] = pairMatch.Value ?? data[name];
 
                 //add as string content
                 var content = new StringContent(data[name]);
-
                 //remove unnecessary headers
                 content.Headers.Clear();
+
                 formDataContent.Add(content, $"\"{name}\"");
             }
             return formDataContent;
         }
 
         //for now mock data for the specific request
-        private Dictionary<string, string> GetMockHomePageFormData(QueryOptions query) {
+        private Dictionary<string, string> GetMockHomePageFormData(QueryOptions query)
+        {
             var currDate = $"{DateTime.Now:ddd MMM d yyyy HH:mm:ss} GMT+0300(FLE Daylight Time)";
             var endDate = $"{DateTime.Now.AddYears(1):ddd MMM d yyyy HH:mm:ss} GMT+0300(FLE Daylight Time)";
 
-            var data = new Dictionary<string, string>{
-                    {"__EVENTTARGET", "ctl00$FullRegion$MainRegion$ContentRegion$ContentFullRegion$ContentLeftRegion$CEPGroup1$CEPActive$cepNDPRevBookingArea$Searchbtn$ButtonLink"},
-                    {"hiddenIntercont$", "False"},
-                    {"hiddenDomestic$", "SE,GB"},
-                    {"hiddenFareType$", "A"},
-                    {"txtFrom$", "Stockholm, Sweden - Arlanda (ARN)"},
-                    {"hiddenFrom$", query.Departure},
-                    {"txtTo$", "London, United Kingdom - Heathrow (LHR)"},
-                    {"hiddenTo$", query.Arrival},
-                    {"hiddenOutbound$", "2018-06-04"},  //depdate
-                    {"hiddenReturn$", "2018-06-10"},    //retdate
+            var data = new Dictionary<string, string> {
+                    {"__EVENTTARGET",       "ctl00$FullRegion$MainRegion$ContentRegion$ContentFullRegion$ContentLeftRegion$CEPGroup1$CEPActive$cepNDPRevBookingArea$Searchbtn$ButtonLink"},
+                    {"hiddenIntercont$",    "False"},
+                    {"hiddenDomestic$",     "SE,GB"},
+                    {"hiddenFareType$",     "A"},
+                    {"txtFrom$",            "Stockholm, Sweden - Arlanda (ARN)"},
+                    {"hiddenFrom$",         query.Departure},
+                    {"txtTo$",              "London, United Kingdom - Heathrow (LHR)"},
+                    {"hiddenTo$",           query.Arrival},
+                    {"hiddenOutbound$",     "2018-06-04"},  //depdate
+                    {"hiddenReturn$",       "2018-06-10"},    //retdate
                     {"hiddenStoreCalDates$", $"{currDate},{currDate},{endDate}"},
-                    {"selectOutbound$", $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
-                    {"selectReturn$", $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
-                    {"TypeAdult$", "1"},
-                    {"TypeChild211$", "0"},
-                    {"TypeInfant$", "0"},
+                    {"selectOutbound$",     $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
+                    {"selectReturn$",       $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
+                    {"TypeAdult$",          "1"},
+                    {"TypeChild211$",       "0"},
+                    {"TypeInfant$",         "0"},
                     {"ddlFareTypeSelector$", "A"}
             };
             return data;
-            //would need to send the same request as predictive search does to get some of this date
         }
 
         // SASLastSearch cookie mimicking
-        private Cookie GetMockSasLastSearchCookie(QueryOptions query) {
+        private Cookie GetMockSasLastSearchCookie(QueryOptions query)
+        {
             var value = @"{""origin"":""ARN"",""destination"":""LHR"",""outward"":""20180604"",""inward"":""20180610"",""adults"":""1"",""children"":""0"",""infants"":""0"",""youths"":""NaN"",""lpc"":""false"",""oneway"":""false"",""rtf"":""false"",""rcity"":""false""}";
 
             var valueEncoded = Uri.EscapeUriString(value);
@@ -294,7 +318,8 @@ namespace WebScraper.Flysas {
         }
 
         //Generates the cookie mimicking js script
-        private Cookie GetMockWtfpcCookie() {
+        private Cookie GetMockWtfpcCookie()
+        {
             var random = new Random();
             var id = new StringBuilder("2");
 
@@ -302,7 +327,8 @@ namespace WebScraper.Flysas {
             var curDateJs = DateTime.Now.Ticks - new DateTime(1970, 1, 1).Ticks;
             var curDateOffset = curDateJs - 2297136;
 
-            for (int i = 2; i <= (32 - curDateJs.ToString().Length); i++) {
+            for (int i = 2; i <= (32 - curDateJs.ToString().Length); i++)
+            {
                 var randInt = Convert.ToInt32(Math.Floor(random.NextDouble() * 16.0));
                 var rand = Convert.ToString(randInt, 16);
                 id.Append(rand);
@@ -318,44 +344,17 @@ namespace WebScraper.Flysas {
             return cookie;
         }
 
-        private TimeSpan ParseTime(string timeString) {
+        private TimeSpan ParseTime(string timeString)
+        {
             Regex timeRegex = new Regex(@"([01][0-9]|[2][0-3])[:-]([0-5][0-9])");
             Match match = timeRegex.Match(timeString);
-            if (match.Success) {
+            if (match.Success)
+            {
                 int hours = int.Parse(match.Groups[1].Value);
                 int minutes = int.Parse(match.Groups[2].Value);
                 return new TimeSpan(hours, minutes, 0);
-            } else return TimeSpan.Zero;
+            }
+            else return TimeSpan.Zero;
         }
-
-        /* prob this is unnecessary
-        // private Dictionary<string, string> GetMockFormDataThirdPage(Dictionary<string, string> entry) {
-        //     var data = new Dictionary<string, string> {
-        //                 {"ENTRY_REQUEST", ConvertFormDataToQuery(entry)},
-        //                 {"WT.ti", "SAS/LU/GB/NDP/REV_AVD_CO"},
-        //                 {"DCSext.wsite", "LU"},
-        //                 {"DCSext.pagecode", "REV_AVD_CO"},
-        //                 {"WT.cg_n", "Revenue Booking"},
-        //                 {"WT.si_x", "3"},
-        //                 {"WT.si_n", "WDS-R"},
-        //                 {"WT.tx_e", "v"},
-        //                 {"WT.tx_u", "1"},
-        //                 {"WT.pn_sc", "STO"},
-        //                 {"WT.pn", "LON"},
-        //                 {"WT.pn_sku", "RoundTrip"},
-        //                 {"DCSext.Outdate", "20180602"},
-        //                 {"DCSext.Outyear", "2018"},
-        //                 {"DCSext.Outmonth", "06"},
-        //                 {"DCSext.Outday", "02"},
-        //                 {"WT.pn_ma", "8-14 days"},
-        //                 {"DCSext.Indate", "20180606"},
-        //                 {"DCSext.Inyear", "2018"},
-        //                 {"DCSext.Inmonth", "06"},
-        //                 {"DCSext.Inday", "06"},
-        //                 {"WT.pc", "3-4 days"}
-        //     };
-        //     return data;
-        // }
-        */
     }
 }

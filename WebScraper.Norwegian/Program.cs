@@ -6,7 +6,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using WebScraper.Lib;
 
-namespace WebScraper.Norwegian {
+namespace WebScraper.Norwegian
+{
     /*
     collect departure airport, arrival airport, connection airport, 
     departure time, arrival time, cheapest price and taxes 
@@ -15,23 +16,29 @@ namespace WebScraper.Norwegian {
 
     // Data should only be collected for direct flights.
 
-    class Program {
+    class Program
+    {
         static List<FlightDataModel> collectedData = new List<FlightDataModel>();
 
-        static void Main(string[] args) {
+        static void Main(string[] args)
+        {
             var client = new WebScraperClientNorwegian();
 
             var scrapeDate = new DateTime(2018, 6, 1);
             int days = DateTime.DaysInMonth(scrapeDate.Year, scrapeDate.Month);
 
-            for (int d = 1; d <= days; d++) {
-                var query = new QueryOptions {
+            for (int d = 1; d <= days; d++)
+            {
+                var query = new QueryOptions
+                {
                     DepDate = scrapeDate,
                     Departure = "OSL",
                     Arrival = "RIX",
                     IsDirect = true
                 };
-                if (scrapeDate.DayOfWeek != DayOfWeek.Saturday) {
+                
+                if (scrapeDate.DayOfWeek != DayOfWeek.Saturday)
+                {
                     client.StartScraperAsync(query).Wait();
                 }
                 scrapeDate = scrapeDate.AddDays(1);
