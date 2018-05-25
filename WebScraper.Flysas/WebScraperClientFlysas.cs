@@ -124,14 +124,14 @@ namespace WebScraper.Flysas
                                                    }).ToList();
 
             //combine inbound/outbound
-            var collectedData = outbounds.SelectMany(o => inbounds.Select(i => new RoundTripFlightData
-            {
-                Outbound = o,
-                Inbound = i
-            }));
+            var collectedData = outbounds.SelectMany(outbound =>
+                                                     inbounds.Select(inbound => new RoundTripFlightData
+                                                     {
+                                                         Outbound = outbound,
+                                                         Inbound = inbound
+                                                     }));
 
             disk.SaveCollectedData(collectedData);
-
         }
 
         private IEnumerable<SasFlightData> ParseFlightsDataFromPage(HtmlDocument page, string table)
@@ -222,6 +222,7 @@ namespace WebScraper.Flysas
         }
         // can't figure out a more efficient way for now. 
         // And no time to attempt headless engine for simplicity sake, maybe later?
+        // or try Jint with or without Knyaz.Optimus for js 
 
         private Dictionary<string, string> GetPostBackPageData(HtmlDocument page)
         {
