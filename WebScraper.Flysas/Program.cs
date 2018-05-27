@@ -19,6 +19,8 @@ namespace WebScraper.Flysas
 
             var client = new WebScraperClientFlysas();
             client.StartScraperAsync(query).Wait();
+            // var webDriver = new WebDriverFlysas();
+            // webDriver.StartScrape(query);
 
             System.Console.WriteLine("Data Collection Completed");
             Console.ReadLine();

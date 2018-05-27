@@ -13,7 +13,6 @@ using System.Collections.Generic;
 
 namespace WebScraper.Flysas
 {
-
     public class WebScraperClientFlysas
     {
         private static readonly Uri homepageUri = new Uri("https://www.flysas.com/en/");
@@ -38,13 +37,10 @@ namespace WebScraper.Flysas
             client.DefaultRequestHeaders.TryAddWithoutValidation("Upgrade-insecure-requests", "1");
         }
 
-        // TODO refactor, naming and methods being too specif, not reusable .. however this is sort of page specific so not sure.
-
         public async Task StartScraperAsync(QueryOptions query)
         {
 
 #if !FROMFILE // -- INITIAL GET REQUEST
-
             HttpRequestMessage homePageRequest = new HttpRequestMessage(HttpMethod.Get, homepageUri);
             HtmlDocument homePage = await client.GetHtmlDocumentAsync(homePageRequest, "data/_temp_1_home_page.xhtml");
             // System.Console.WriteLine(clientHandler.CookieContainer.GetCookieHeader(homepageUri));
@@ -64,8 +60,10 @@ namespace WebScraper.Flysas
 #if !FROMFILE
             // post back request to homePage
             Thread.Sleep(2000);     // should I be nice and wait between requests? 
-            var postBackRequest = new HttpRequestMessage(HttpMethod.Post, homepageUri);
-            postBackRequest.Content = postBackRequestContent;
+            var postBackRequest = new HttpRequestMessage(HttpMethod.Post, homepageUri)
+            {
+                Content = postBackRequestContent
+            };
 
             HtmlDocument postBackPage = await client.GetHtmlDocumentAsync(postBackRequest, "data/_temp_2_postback_page.xhtml");       //temp bool value to save file
 #else
@@ -85,16 +83,15 @@ namespace WebScraper.Flysas
 #if !FROMFILE 
             // second postback to redirected page
             Thread.Sleep(waitingTime);             //before this remove the time passed from the load 
-            var tablePageRequest = new HttpRequestMessage(HttpMethod.Post, redirectUri);
-            tablePageRequest.Content = tableRequestContent;
-
+            var tablePageRequest = new HttpRequestMessage(HttpMethod.Post, redirectUri)
+            {
+                Content = tableRequestContent
+            };
             HtmlDocument page = await client.GetHtmlDocumentAsync(tablePageRequest, "data/_temp_3_tablePage_page.xhtml");
 #else
             HtmlDocument page = new HtmlDocument();
             page.Load(@"data/_temp_3_tablePage_page.xhtml");
 #endif
-
-
             //select only direct or redirected in Oslo, with the chepeast Fare; 
             var outboundFlightsData = ParseFlightsDataFromPage(page, "outbound");
             var outbounds = outboundFlightsData.Where(o => o.Connection.Equals("") || o.Connection.Equals("Oslo"))
@@ -106,7 +103,7 @@ namespace WebScraper.Flysas
                                                        DepTime = query.DepDate + f.DepTime,
                                                        ArrTime = query.DepDate + f.ArrTime,
                                                        Price = f.Fares.MinByPrice().Price,
-                                                       //    Taxes = f.Fares.MinByPrice().Taxes
+                                                       Taxes = f.Fares.MinByPrice().Taxes
                                                    }).ToList();
 
             //select only direct or redirected in Oslo, with the chepeast Fare;     //leaving as duplicates in case instructions need to change 
@@ -221,7 +218,6 @@ namespace WebScraper.Flysas
             else return false;
         }
         // can't figure out a more efficient way for now. 
-        // And no time to attempt headless engine for simplicity sake, maybe later?
         // or try Jint with or without Knyaz.Optimus for js 
 
         private Dictionary<string, string> GetPostBackPageData(HtmlDocument page)
@@ -286,22 +282,22 @@ namespace WebScraper.Flysas
             var endDate = $"{DateTime.Now.AddYears(1):ddd MMM d yyyy HH:mm:ss} GMT+0300(FLE Daylight Time)";
 
             var data = new Dictionary<string, string> {
-                    {"__EVENTTARGET",       "ctl00$FullRegion$MainRegion$ContentRegion$ContentFullRegion$ContentLeftRegion$CEPGroup1$CEPActive$cepNDPRevBookingArea$Searchbtn$ButtonLink"},
-                    {"hiddenIntercont$",    "False"},
-                    {"hiddenDomestic$",     "SE,GB"},
-                    {"hiddenFareType$",     "A"},
-                    {"txtFrom$",            "Stockholm, Sweden - Arlanda (ARN)"},
-                    {"hiddenFrom$",         query.Departure},
-                    {"txtTo$",              "London, United Kingdom - Heathrow (LHR)"},
-                    {"hiddenTo$",           query.Arrival},
-                    {"hiddenOutbound$",     "2018-06-04"},  //depdate
-                    {"hiddenReturn$",       "2018-06-10"},    //retdate
+                    {"__EVENTTARGET",        "ctl00$FullRegion$MainRegion$ContentRegion$ContentFullRegion$ContentLeftRegion$CEPGroup1$CEPActive$cepNDPRevBookingArea$Searchbtn$ButtonLink"},
+                    {"hiddenIntercont$",     "False"},
+                    {"hiddenDomestic$",      "SE,GB"},
+                    {"hiddenFareType$",      "A"},
+                    {"txtFrom$",             "Stockholm, Sweden - Arlanda (ARN)"},
+                    {"hiddenFrom$",          query.Departure},
+                    {"txtTo$",               "London, United Kingdom - Heathrow (LHR)"},
+                    {"hiddenTo$",            query.Arrival},
+                    {"hiddenOutbound$",      "2018-06-04"},  //depdate
+                    {"hiddenReturn$",        "2018-06-10"},    //retdate
                     {"hiddenStoreCalDates$", $"{currDate},{currDate},{endDate}"},
-                    {"selectOutbound$",     $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
-                    {"selectReturn$",       $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
-                    {"TypeAdult$",          "1"},
-                    {"TypeChild211$",       "0"},
-                    {"TypeInfant$",         "0"},
+                    {"selectOutbound$",      $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
+                    {"selectReturn$",        $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
+                    {"TypeAdult$",           "1"},
+                    {"TypeChild211$",        "0"},
+                    {"TypeInfant$",          "0"},
                     {"ddlFareTypeSelector$", "A"}
             };
             return data;
@@ -313,8 +309,10 @@ namespace WebScraper.Flysas
             var value = @"{""origin"":""ARN"",""destination"":""LHR"",""outward"":""20180604"",""inward"":""20180610"",""adults"":""1"",""children"":""0"",""infants"":""0"",""youths"":""NaN"",""lpc"":""false"",""oneway"":""false"",""rtf"":""false"",""rcity"":""false""}";
 
             var valueEncoded = Uri.EscapeUriString(value);
-            var cookie = new Cookie("SASLastSearch", $"\"{valueEncoded}\"", "/", domain);
-            cookie.Expires = query.DepDate;
+            var cookie = new Cookie("SASLastSearch", $"\"{valueEncoded}\"", "/", domain)
+            {
+                Expires = query.DepDate
+            };
             return cookie;
         }
 
@@ -340,8 +338,10 @@ namespace WebScraper.Flysas
             var ss = curDateOffset.ToString();
 
             var value = $"id={id.ToString()}:lv={lv}:ss={ss}";
-            var cookie = new Cookie("WT_FPC", $"\"{value}\"", "/", domain);
-            cookie.Expires = curDate.AddYears(10);
+            var cookie = new Cookie("WT_FPC", $"\"{value}\"", "/", domain)
+            {
+                Expires = curDate.AddYears(10)
+            };
             return cookie;
         }
 
