@@ -33,8 +33,10 @@ namespace WebScraper.Lib
 
             var htmlDocument = new HtmlDocument();
             using (var responseStream = await response.Content.ReadAsStreamAsync())
+            {
                 htmlDocument.Load(responseStream);
-
+            }
+            
             //optionally save xhtml file in project's root directory
             if (filePath != String.Empty)
             {

@@ -78,7 +78,7 @@ namespace WebScraper.Lib
                     file.WriteLine($"return_to: {fl.Inbound.Arrival}");
                     if (fl.Inbound.Connection != "")
                     {
-                        file.WriteLine($"connected: {fl.Outbound.Connection}\n");
+                        file.WriteLine($"connected: {fl.Inbound.Connection}\n");
                     }
                     else file.WriteLine();
 
