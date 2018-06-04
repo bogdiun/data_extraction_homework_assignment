@@ -25,8 +25,9 @@ namespace WebScraper.Flysas
         {
             var service = ChromeDriverService.CreateDefaultService(@"bin/Debug/netcoreapp2.0/", "chromedriver.exe");
             var options = new ChromeOptions();
-            // options.AddArgument("--headless");
-            // options.AddExtension(Path.GetFullPath("GA_Opt-out.crx"));
+
+            options.AddArgument("--headless");
+            options.AddExtension(Path.GetFullPath("GA_Opt-out.crx"));
 
             webDriver = new ChromeDriver(service, options);
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2); //wait settings
@@ -41,16 +42,16 @@ namespace WebScraper.Flysas
             jsExecutor.ExecuteScript("hideMarketSelector()");
 
             // select trip type
-            if (query.IsReturnTrip)
+            if (query.IsRoundTrip)
                 main.TripTypeSelectors.First(t => t.GetAttribute("value") == "roundtrip").Click();
             else
                 main.TripTypeSelectors.First(t => t.GetAttribute("value") == "oneway").Click();
 
             // fill in arrival and departure airports
-            main.SearchDeparture.SendKeys(query.Departure);
+            main.DepartureField.SendKeys(query.Departure);
             webDriver.FindElement(By.Id($"{query.Departure}")).Click();
 
-            main.SearchArrival.SendKeys(query.Arrival);
+            main.ArrivalField.SendKeys(query.Arrival);
             webDriver.FindElement(By.Id($"{query.Arrival}")).Click();
 
             // fill out the dates
@@ -59,15 +60,10 @@ namespace WebScraper.Flysas
 
             jsExecutor.ExecuteScript("arguments[0].click()", main.SearchButton);
 
-            // Actions seq = new Actions(webDriver);
-            // seq.MoveToElement(main.SearchButton);
-            // seq.Click();
-            // seq.Build();
-            // seq.Perform();
+            // Actions submitAction = new Actions(webDriver);
+            // submitAction.MoveToElement(main.SearchButton).Click().Perform();
 
             // main.SearchButton.Click();
-
-            // Solve the issue of fun captcha :/ why is it there for webdriver and not for manual usage 
 
             // wait for the flight table page to load
             // get data from the page?
@@ -88,10 +84,10 @@ namespace WebScraper.Flysas
         public ReadOnlyCollection<IWebElement> TripTypeSelectors =>
             driver.FindElements(By.Name("ctl00$FullRegion$MainRegion$ContentRegion$ContentFullRegion$ContentLeftRegion$CEPGroup1$CEPActive$cepNDPRevBookingArea$ceptravelTypeSelector$TripTypeSelector"));
 
-        public IWebElement SearchDeparture =>
+        public IWebElement DepartureField =>
             driver.FindElement(By.Id("ctl00_FullRegion_MainRegion_ContentRegion_ContentFullRegion_ContentLeftRegion_CEPGroup1_CEPActive_cepNDPRevBookingArea_predictiveSearch_txtFrom"));
 
-        public IWebElement SearchArrival =>
+        public IWebElement ArrivalField =>
             driver.FindElement(By.Id("ctl00_FullRegion_MainRegion_ContentRegion_ContentFullRegion_ContentLeftRegion_CEPGroup1_CEPActive_cepNDPRevBookingArea_predictiveSearch_txtTo"));
 
         public IWebElement SearchButton =>
@@ -120,9 +116,10 @@ namespace WebScraper.Flysas
             dateBttn.Click();
 
             if (page.SelectedMonth.Text.ToUpper() != date.ToString("MMMM").ToUpper())
-                page.MonthOptions.First(f => f.Text.ToUpper() == date.ToString("MMM").ToUpper()).Click();
+                page.MonthOptions.First(option => option.Text.ToUpper() == date.ToString("MMM").ToUpper()).Click();
             // else page.SelectedMonth.Click();
-            page.DayOptions.First(f => f.Text == date.Day.ToString()).Click();
+            page.DayOptions.First(option => option.Text == date.Day.ToString()).Click();
         }
+       
     }
 }

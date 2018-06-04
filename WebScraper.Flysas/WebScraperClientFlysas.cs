@@ -24,11 +24,11 @@ namespace WebScraper.Flysas
         public WebScraperClientFlysas()
         {
             var cookieContainer = new CookieContainer();
-            
+
             clientHandler = new HttpClientHandler()
             {
+                // AllowAutoRedirect = true,
                 UseCookies = true,
-                AllowAutoRedirect = true,
                 CookieContainer = cookieContainer,
                 AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
             };
@@ -50,30 +50,27 @@ namespace WebScraper.Flysas
             homePage.Load(@"data/_temp_1_home_page.xhtml");
 #endif
             // response data handling
-            var form = GetHomePageData(homePage);
-            var postBackRequestContent = GetHomePageFormDataContent(form, query); //fill query values and encode, should separate
+            var formData = FillHomePageForm(homePage, query);
+
+            // post back request to homePage
+            var postBackRequest = new HttpRequestMessage(HttpMethod.Post, homepageUri)
+            {
+                Content = EncodeFormToMultiPartContent(formData)
+            };
 
             client.DefaultRequestHeaders.Referrer = homepageUri;
-
             clientHandler.CookieContainer.Add(homepageUri, GetMockWtfpcCookie());
             clientHandler.CookieContainer.Add(homepageUri, GetMockSasLastSearchCookie(query));
 
 #if !FROMFILE
-            // post back request to homePage
             Thread.Sleep(2000);     // should I be nice and wait between requests? 
-            var postBackRequest = new HttpRequestMessage(HttpMethod.Post, homepageUri)
-            {
-                Content = postBackRequestContent
-            };
-
             HtmlDocument postBackPage = await client.GetHtmlDocumentAsync(postBackRequest, "data/_temp_2_postback_page.xhtml");       //temp bool value to save file
 #else
             HtmlDocument postBackPage = new HtmlDocument();
             postBackPage.Load(@"data/_temp_2_postback_page.xhtml");
 #endif
             // post back response data handling                                 // TODO: start count: after loading a page start count till next postback
-            var postBackPageData = GetPostBackPageData(postBackPage);
-            FormUrlEncodedContent tableRequestContent = new FormUrlEncodedContent(postBackPageData);
+            var postBackPageFormData = FillPostBackPageForm(postBackPage);
 
             var postBackScript = postBackPage.DocumentNode.SelectNodes("//script").Last().InnerText;
             var match = Regex.Match(postBackScript, @"'(https://.+)',.+(\d{4})\);", RegexOptions.IgnoreCase); // TODO: adjust regex to be match ms of any number of digits
@@ -81,48 +78,50 @@ namespace WebScraper.Flysas
             Uri redirectUri = match.Success ? new Uri(match.Groups[1].Value) : homepageUri;
             int waitingTime = match.Success ? int.Parse(match.Groups[2].Value) : 3000;
 
-#if !FROMFILE 
             // second postback to redirected page
-            Thread.Sleep(waitingTime);             //before this remove the time passed from the load 
             var tablePageRequest = new HttpRequestMessage(HttpMethod.Post, redirectUri)
             {
-                Content = tableRequestContent
+                Content = new FormUrlEncodedContent(postBackPageFormData)
             };
-            HtmlDocument page = await client.GetHtmlDocumentAsync(tablePageRequest, "data/_temp_3_tablePage_page.xhtml");
+
+#if !FROMFILE 
+            Thread.Sleep(waitingTime);             //before this remove the time passed from the load 
+            HtmlDocument flightTablePage = await client.GetHtmlDocumentAsync(tablePageRequest, "data/_temp_3_tablePage_page.xhtml");
 #else
             HtmlDocument page = new HtmlDocument();
             page.Load(@"data/_temp_3_tablePage_page.xhtml");
 #endif
             // I don't think I get the table anymore .. is it my IP being blocked or is the page changed? 
-        
-            
+
             //select only direct or redirected in Oslo, with the chepeast Fare; 
-            var outboundFlightsData = ParseFlightsDataFromPage(page, "outbound");
-            var outbounds = outboundFlightsData.Where(o => o.Connection.Equals("") || o.Connection.Equals("Oslo"))
-                                               .Select(f => new FlightDataModel
-                                               {
-                                                   Departure = f.Departure,
-                                                   Arrival = f.Arrival,
-                                                   Connection = f.Connection,
-                                                   DepTime = query.DepDate + f.DepTime,
-                                                   ArrTime = query.DepDate + f.ArrTime,
-                                                   Price = f.Fares.MinByPrice().Price,
-                                                   Taxes = f.Fares.MinByPrice().Taxes
-                                               }).ToList();
+            var allOutbound = ParseFlightsData(flightTablePage, "outbound");
+
+            var outbounds = allOutbound.Where(data => data.Connection.Equals("") || data.Connection.Equals("Oslo"))
+                                       .Select(data => new FlightDataModel
+                                       {
+                                           Departure = data.Departure,
+                                           Arrival = data.Arrival,
+                                           Connection = data.Connection,
+                                           DepTime = query.DepDate + data.DepTime,
+                                           ArrTime = query.DepDate + data.ArrTime,
+                                           Price = data.Fares.MinByPrice().Price,
+                                           Taxes = data.Fares.MinByPrice().Taxes
+                                       }).ToList();
 
             //select only direct or redirected in Oslo, with the chepeast Fare;     //leaving as duplicates in case instructions need to change 
-            var inboundFlightsData = ParseFlightsDataFromPage(page, "inbound");
-            var inbounds = outboundFlightsData.Where(o => o.Connection.Equals("") || o.Connection.Equals("Oslo"))
-                                              .Select(f => new FlightDataModel
-                                              {
-                                                  Departure = f.Departure,
-                                                  Arrival = f.Arrival,
-                                                  Connection = f.Connection,
-                                                  DepTime = query.RetDate + f.DepTime,
-                                                  ArrTime = query.RetDate + f.ArrTime,
-                                                  Price = f.Fares.MinByPrice().Price,
-                                                  Taxes = f.Fares.MinByPrice().Taxes
-                                              }).ToList();
+            var allInbound = ParseFlightsData(flightTablePage, "inbound");
+
+            var inbounds = allInbound.Where(data => data.Connection.Equals("") || data.Connection.Equals("Oslo"))
+                                     .Select(data => new FlightDataModel
+                                     {
+                                         Departure = data.Departure,
+                                         Arrival = data.Arrival,
+                                         Connection = data.Connection,
+                                         DepTime = query.RetDate + data.DepTime,
+                                         ArrTime = query.RetDate + data.ArrTime,
+                                         Price = data.Fares.MinByPrice().Price,
+                                         Taxes = data.Fares.MinByPrice().Taxes
+                                     }).ToList();
 
             //combine inbound/outbound  | Cartesian Product | for each outbound select each inbound
             var collectedData = outbounds.SelectMany(outbound =>
@@ -135,7 +134,7 @@ namespace WebScraper.Flysas
             disk.SaveCollectedData(collectedData);
         }
 
-        private IEnumerable<SasFlightData> ParseFlightsDataFromPage(HtmlDocument page, string direction)
+        private IEnumerable<SasFlightData> ParseFlightsData(HtmlDocument page, string direction)
         {
             var flightsData = new List<SasFlightData>();
 
@@ -159,7 +158,7 @@ namespace WebScraper.Flysas
                 result.Departure = airports.First().SelectSingleNode(".//*[@class='airport']").InnerText;
                 result.Arrival = airports.Last().SelectSingleNode(".//*[@class='airport']").InnerText;
 
-                result.Connection = airports[1].InnerText.Contains(result.Arrival) ? "" : airports[1].InnerText;
+                result.Connection = airports[1].InnerText.Contains(result.Arrival) ? "" : airports[1].InnerText; //if  it not a connected flight then this will contain arrival
 
                 // Get Time -- I am ignoring the +1 days for now
                 var time = row.SelectNodes(".//td[@class='time']/*[@class='time']");
@@ -183,106 +182,107 @@ namespace WebScraper.Flysas
             var fares = new List<FareInfo>();
             var fareNodes = flightRow.SelectNodes("td[contains(@class, 'fare')]");
 
-            foreach (var n in fareNodes)
+            foreach (var node in fareNodes)
             {
-                FareInfo fare = new FareInfo();
-
-                Match matcher = Regex.Match(n.Id, @"^reco_(\d.+)$");
-                fare.Id = matcher.Groups[1].Value;
-
-                bool success = TryUpdateFarePrice(fare, flightRow);
-
-                if (success) fares.Add(fare);
+                FareInfo fare = GetFareData(node);
+                if (fare != null) fares.Add(fare);
             }
             return fares;
         }
 
-        private bool TryUpdateFarePrice(FareInfo fare, HtmlNode html)
+        private FareInfo GetFareData(HtmlNode node)
         {
-            string scripts = html.SelectNodes("//script")
+            FareInfo fare = new FareInfo();
+
+            // find a fare Id match
+            Match fareIdMatch = Regex.Match(node.Id, @"^reco_(\d.+)$");
+            if (fareIdMatch.Success)
+            {
+                fare.Id = fareIdMatch.Groups[1].Value;
+            }
+            else return null;   // no id
+
+            // get all script texts
+            string scripts = node.SelectNodes("//script")
                                  .Select(s => s.InnerText)
                                  .Aggregate((a, b) => a + b);
 
-            //could do a trycatch
-            Match matcher = Regex.Match(scripts, $@"price_{fare.Id}.+'data-price','(\d+.\d+)'");
-            if (matcher.Success)
+            // find fare price
+            Match priceMatch = Regex.Match(scripts, $@"price_{fare.Id}.+'data-price','(\d+.\d+)'");
+            if (priceMatch.Success)
             {
-                fare.Price = decimal.Parse(matcher.Groups[1].Value);
-
-                Match recoMatch = Regex.Match(scripts, $@"recoHidden_{fare.Id}', '(\d+)'");
-                if (recoMatch.Success)
-                {
-                    string reco = recoMatch.Groups[1].Value;
-
-                    Match taxMatch = Regex.Match(scripts, $@"'tax':'(\d+.\d+)'.+recommendation, "".*""{reco}""", RegexOptions.Multiline);
-                    fare.Taxes = taxMatch.Success ? decimal.Parse(taxMatch.Groups[2].Value) : -1;
-                }
-                return true;
+                fare.Price = decimal.Parse(priceMatch.Groups[1].Value);
             }
-            else return false;
-        }
-        // can't figure out a more efficient way for now. 
-        // or try Jint with or without Knyaz.Optimus for js 
+            else return null;  //no price
 
-        private Dictionary<string, string> GetPostBackPageData(HtmlDocument page)
+            // find recomendation number & recommended taxes
+            Match recommendation = Regex.Match(scripts, $@"recoHidden_{fare.Id}', '(\d+)'");
+            if (recommendation.Success)
+            {
+                string recoNumber = recommendation.Groups[1].Value;
+
+                Match taxMatch = Regex.Match(scripts, $@"'tax':'(\d+[.]\d+)'.+\(recommendation, ""\d+"".+""{recoNumber}""\);", RegexOptions.Multiline);
+                fare.Taxes = taxMatch.Success ? decimal.Parse(taxMatch.Groups[1].Value) : 0;
+            }
+            else return null; //no reccomendation number
+            
+            return fare;
+        }
+
+        private Dictionary<string, string> FillPostBackPageForm(HtmlDocument page)
         {
-            //getting successful controls
+            //get successful controls
             var form = page.DocumentNode.SelectNodes("//input")
-                                        .Where(n => !Regex.IsMatch(n.GetAttributeValue("name", ""), @"^btnSubmit.+$"))
-                                        .ToDictionary(k => k.GetAttributeValue("name", ""), v => v.GetAttributeValue("value", ""));
+                                        .Where(input => !Regex.IsMatch(input.GetAttributeValue("name", ""), @"^btnSubmit.+$"))
+                                        .ToDictionary(name => name.GetAttributeValue("name", ""), value => value.GetAttributeValue("value", ""));
 
             Regex lessThanRgx = new Regex("&lt;");
             form["SO_GL"] = lessThanRgx.Replace(form["SO_GL"], "<");
             form["__EVENTTARGET"] = "btnSubmitAmadeus";
 
-            // postBackPageData.ToList().ForEach(i => System.Console.WriteLine($"{i.Key}: {i.Value}"));
             return form;
         }
 
-        private Dictionary<string, string> GetHomePageData(HtmlDocument page)
+        private Dictionary<string, string> FillHomePageForm(HtmlDocument page, QueryOptions query)
         {
-            var dataTags = page.DocumentNode.SelectNodes("//input[@name][not(@type='submit')]|//select[@name]")
-                                .Where(d => !Regex.IsMatch(d.Attributes["name"].Value, @"MainFormBorderPanel\$url$", RegexOptions.IgnoreCase))
-                                .Where(n =>
-                                {
-                                    if ((n.Attributes.Contains("type") && n.Attributes["type"].Value.Equals("radio")))
-                                    {
-                                        bool isRoundtrip = n.GetAttributeValue("value", "").Equals("roundtrip");    // to not hardcode this, I should leave all radios in the form data and
-                                        bool isShowDates = n.GetAttributeValue("value", "").Equals("Show selected dates");  // and remove unnecessary after filling the form from query
-                                        return (isRoundtrip || isShowDates);
-                                    }
-                                    else return true;
-                                });
+            var tripType = query.IsRoundTrip ? "roundtrip" : "oneway";
+            var formControlNodes = page.DocumentNode.SelectNodes("//input[@name][not(@type='submit')]|//select[@name]")
+                                                    .Where(node => !Regex.IsMatch(node.Attributes["name"].Value, @"MainFormBorderPanel\$url$", RegexOptions.IgnoreCase))
+                                                    .Where(node =>
+                                                    {
+                                                        if ((node.Attributes.Contains("type") && node.Attributes["type"].Value.Equals("radio")))
+                                                        {
+                                                            bool rightTripType = node.GetAttributeValue("value", "").Equals(tripType);    // to not hardcode this, I should leave all radios in the form data and
+                                                            bool isShowDates = node.GetAttributeValue("value", "").Equals("Show selected dates");  // and remove unnecessary after filling the form from query
+                                                            return (rightTripType || isShowDates);
+                                                        }
+                                                        else return true;
+                                                    });
 
-            Dictionary<string, string> dataPairs = dataTags.ToDictionary(k => k.GetAttributeValue("name", ""), v => v.GetAttributeValue("value", ""));
-            return dataPairs;
+            var mockFormControls = GetMockHomePageFormData(query);
+            var filledFormData = formControlNodes.ToDictionary(form => form.GetAttributeValue("name", ""),      // Key
+                                                               form =>
+                                                               {
+                                                                   var matchingControl = mockFormControls.FirstOrDefault(mockControl => Regex.IsMatch(form.GetAttributeValue("name", ""), mockControl.Key));
+                                                                   return matchingControl.Value ?? form.GetAttributeValue("value", "");
+                                                               });
+            return filledFormData;
         }
 
-        //generates the formData for the first Post request, or in other words fills the form
-        private MultipartFormDataContent GetHomePageFormDataContent(Dictionary<string, string> form, QueryOptions query)
+        private MultipartFormDataContent EncodeFormToMultiPartContent(Dictionary<string, string> form)
         {
             var formDataContent = new MultipartFormDataContent("----WebKitFormBoundaryorq3ASaOYcTSG1JW");
-
-            //should probably move these to the method where I am getting the needed form/dictionary and it's values
-            var mockData = GetMockHomePageFormData(query);
-            foreach (var name in form.Keys.ToList())
+            foreach (var controlName in form.Keys.ToList())
             {
+                var contentPart = new StringContent(form[controlName]);
+                contentPart.Headers.Clear(); //remove unnecessary headers
 
-                var pairMatch = mockData.FirstOrDefault(d => Regex.IsMatch(name, d.Key));
-                form[name] = pairMatch.Value ?? form[name];
-
-                //add as string content maybe convert to byte array instead
-                var contentPart = new StringContent(form[name]);
-                //remove unnecessary headers
-                contentPart.Headers.Clear();
-
-                formDataContent.Add(contentPart, $"\"{name}\"");
+                formDataContent.Add(contentPart, $"\"{controlName}\"");
             }
             return formDataContent;
         }
 
         //this only has the data that is actually changing from the page load to after selecting the right dates
-        //for now mock data for the specific request, should be called from the method that makes a dictionary of form data
         private Dictionary<string, string> GetMockHomePageFormData(QueryOptions query)
         {
             var currDate = $"{DateTime.Now:ddd MMM d yyyy HH:mm:ss} GMT+0300(FLE Daylight Time)";
