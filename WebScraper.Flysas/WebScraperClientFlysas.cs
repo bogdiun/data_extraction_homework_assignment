@@ -1,4 +1,4 @@
-// #define FROMFILE
+#define FROMFILE
 using System;
 using System.Net;
 using System.Net.Http;
@@ -88,8 +88,8 @@ namespace WebScraper.Flysas
             Thread.Sleep(waitingTime);             //before this remove the time passed from the load 
             HtmlDocument flightTablePage = await client.GetHtmlDocumentAsync(tablePageRequest, "data/_temp_3_tablePage_page.xhtml");
 #else
-            HtmlDocument page = new HtmlDocument();
-            page.Load(@"data/_temp_3_tablePage_page.xhtml");
+            HtmlDocument flightTablePage = new HtmlDocument();
+            flightTablePage.Load(@"data/_temp_3_tablePage_page.xhtml");
 #endif
             // I don't think I get the table anymore .. is it my IP being blocked or is the page changed? 
 
@@ -197,9 +197,7 @@ namespace WebScraper.Flysas
             // find a fare Id match
             Match fareIdMatch = Regex.Match(node.Id, @"^reco_(\d.+)$");
             if (fareIdMatch.Success)
-            {
                 fare.Id = fareIdMatch.Groups[1].Value;
-            }
             else return null;   // no id
 
             // get all script texts
@@ -211,22 +209,17 @@ namespace WebScraper.Flysas
             Match priceMatch = Regex.Match(scripts, $@"price_{fare.Id}.+'data-price','(\d+.\d+)'");
             if (priceMatch.Success)
             {
-                fare.Price = decimal.Parse(priceMatch.Groups[1].Value);
+                string price = priceMatch.Groups[1].Value;
+
+                Match taxMatch = Regex.Match(scripts, $@"'price':'{price}'[^']+'tax':'(\d+[.]\d+)'");
+                if (taxMatch.Success)
+                    fare.Taxes = decimal.Parse(taxMatch.Groups[1].Value);
+                else return null;
+
+                fare.Price = decimal.Parse(price);
+                return fare;
             }
             else return null;  //no price
-
-            // find recomendation number & recommended taxes
-            Match recommendation = Regex.Match(scripts, $@"recoHidden_{fare.Id}', '(\d+)'");
-            if (recommendation.Success)
-            {
-                string recoNumber = recommendation.Groups[1].Value;
-
-                Match taxMatch = Regex.Match(scripts, $@"'tax':'(\d+[.]\d+)'.+\(recommendation, ""\d+"".+""{recoNumber}""\);", RegexOptions.Multiline);
-                fare.Taxes = taxMatch.Success ? decimal.Parse(taxMatch.Groups[1].Value) : 0;
-            }
-            else return null; //no reccomendation number
-            
-            return fare;
         }
 
         private Dictionary<string, string> FillPostBackPageForm(HtmlDocument page)
@@ -297,8 +290,8 @@ namespace WebScraper.Flysas
                     {"hiddenFrom$",          query.Departure},
                     {"txtTo$",               "London, United Kingdom - Heathrow (LHR)"},
                     {"hiddenTo$",            query.Arrival},
-                    {"hiddenOutbound$",      "2018-06-04"},  //depdate
-                    {"hiddenReturn$",        "2018-06-10"},    //retdate
+                    {"hiddenOutbound$",      query.DepDate.ToString("yyyy-MM-dd")},
+                    {"hiddenReturn$",        query.RetDate.ToString("yyyy-MM-dd")},
                     {"hiddenStoreCalDates$", $"{currDate},{currDate},{endDate}"},
                     {"selectOutbound$",      $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
                     {"selectReturn$",        $"{DateTime.Now.Year}-{DateTime.Now.Month}-01"},
@@ -313,9 +306,11 @@ namespace WebScraper.Flysas
         // SASLastSearch cookie mimicking
         private Cookie GetMockSasLastSearchCookie(QueryOptions query)
         {
-            // stick this together from query values instead of hardcoding
-            var value = @"{""origin"":""ARN"",""destination"":""LHR"",""outward"":""20180604"",""inward"":""20180610"",""adults"":""1"",""children"":""0"",""infants"":""0"",""youths"":""NaN"",""lpc"":""false"",""oneway"":""false"",""rtf"":""false"",""rcity"":""false""}";
-
+            var value = $"{{\"origin\":\"{query.Departure}\",\"destination\":\"{query.Arrival}\"," +
+                        $"\"outward\":\"{query.DepDate:yyyyMMdd}\",\"inward\":\"{query.RetDate:yyyyMMdd}\"," +
+                        $"\"adults\":\"1\",\"children\":\"0\",\"infants\":\"0\",\"youths\":\"NaN\",\"lpc\":\"false\"," +
+                        $"\"oneway\":\"{(!query.IsRoundTrip).ToString().ToLower()}\",\"rtf\":\"false\",\"rcity\":\"false\"}}";
+                                    
             var valueEncoded = Uri.EscapeUriString(value);
             var cookie = new Cookie("SASLastSearch", $"\"{valueEncoded}\"", "/", domain)
             {

@@ -85,7 +85,7 @@ namespace WebScraper.Lib
                     file.WriteLine($"departure time: {fl.Inbound.DepTime}");
                     file.WriteLine($"arrival time: {fl.Inbound.ArrTime}\n");
                     file.WriteLine($"total price: {fl.Outbound.Price + fl.Inbound.Price}€({fl.Outbound.Price}€+{fl.Inbound.Price}€)");
-                    file.WriteLine($"taxes: {fl.Outbound.Taxes + fl.Inbound.Taxes}\n\n");   //no success here
+                    file.WriteLine($"taxes: {fl.Outbound.Taxes + fl.Inbound.Taxes}\n\n");
                 }
                 file.WriteLine("------------------------");
             }

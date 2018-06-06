@@ -13,8 +13,8 @@ namespace WebScraper.Flysas
             {
                 Departure = "ARN",
                 Arrival = "LHR",
-                DepDate = new DateTime(2018, 6, 4),
-                RetDate = new DateTime(2018, 6, 10)
+                DepDate = new DateTime(2018, 7, 4),
+                RetDate = new DateTime(2018, 7, 10)
             };
 
             var client = new WebScraperClientFlysas();
